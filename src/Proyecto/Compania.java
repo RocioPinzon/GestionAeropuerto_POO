@@ -7,16 +7,26 @@ public class Compania {
 	private int numVuelo = 0;
 	
 	
+	// CONSTRUCTORES
 	public Compania(String nombre) {
 		this.nombre = nombre;
 	}
 	
 	public Compania(String nombre, Vuelo v[]) {
 		this.nombre = nombre;
-		this.listaVuelos = v;
+		listaVuelos = v;
 		numVuelo = v.length;
 	}
 		
+	
+	// METODOS
+	public void insertarVuelo(Vuelo vuelo) {
+		listaVuelos[numVuelo] = vuelo;
+		numVuelo++;
+	}
+	
+	
+	// GETTERS
 	public String getNombre() {
 		return nombre;
 	}
@@ -25,10 +35,7 @@ public class Compania {
 		return numVuelo;
 	}
 	
-	public void insertarVuelo(Vuelo vuelo) {
-		listaVuelos[numVuelo] = vuelo;
-		numVuelo++;
-	}
+	
 	
 	public Vuelo getVuelo(int i) {
 		return listaVuelos[i];

@@ -32,7 +32,7 @@ public class Principal {
 		aero[0].getCompania("Air Flights").insertarVuelo(new Vuelo("AF02", "Madrid", "Paris", 75, 80));
 
 		aero[0].getCompania("AirImper").getVuelo("AI01").insertarPasajero(new Pasajero("Rocio", "123456F", "Española"));
-		aero[0].getCompania("AirImper").getVuelo("AF02").insertarPasajero(new Pasajero("Sergio", "546545G", "Española"));
+		aero[0].getCompania("AirImper").getVuelo("AI02").insertarPasajero(new Pasajero("Sergio", "546545G", "Española"));
 		
 		aero[0].getCompania("Air Flights").getVuelo("AF01").insertarPasajero(new Pasajero("Lydia", "EW87F575", "Alemana"));
 		aero[0].getCompania("Air Flights").getVuelo("AF01").insertarPasajero(new Pasajero("Lydia", "EW87F575", "Alemana"));
@@ -93,19 +93,21 @@ public class Principal {
 		
 		do{
 			System.out.print("\t .: MENU :.");
-			System.out.print("1. Ver aeropuertos (Publicos o Privados)");
-			System.out.print("2. Ver empresas(Privado) o subvencion(Publico)");
-			System.out.print("3. Lista compañias de un aeropuerto");
-			System.out.print("4. Lista de vuelos por compañia");
-			System.out.print("5. Listar posibles vuelos de Origen y Destino");
-			System.out.print("6. Salir");
+			System.out.print("\n1. Ver aeropuertos (Publicos o Privados)");
+			System.out.print("\n2. Ver empresas(Privado) o subvencion(Publico)");
+			System.out.print("\n3. Lista compañias de un aeropuerto");
+			System.out.print("\n4. Lista de vuelos por compañia");
+			System.out.print("\n5. Listar posibles vuelos de Origen y Destino");
+			System.out.print("\n6. Salir");
 			
-			System.out.print("Opcion");
+			System.out.print("\nOpcion: ");
 
 			opcion = entrada.nextInt();
 			
 			switch (opcion) {
 			case 1: // Ver aeropuertos (Publicos o Privados)
+				System.out.print("");
+				mostrarDatosAeropuertos(aeropuertos);
 				
 				break;
 			case 2: // 	Ver empresas(Privado) o subvencion(Publico)
@@ -121,34 +123,43 @@ public class Principal {
 				break;
 				
 			default:
-				System.out.print("Opcion de menú no válida. Pruebe con las opciones del 1 al 6.");
+				System.out.print("");
+				System.out.print("Opcion de menú no válida. Pruebe con las opciones del 1 al 6.\n");
 				break;
 			}
 		}while(opcion!=6);
+		
+		}
+	
+		public static void mostrarDatosAeropuertos(Aeropuerto aeropuertos[]) {
+			
+			for (int i = 0; i < aeropuertos.length; i++) {
+
+				if(aeropuertos[i] instanceof AeropuertoPrivado) {
+					System.out.print("ºn || Aeropuerto Privado ||");
+					System.out.print("\nNombre: " + aeropuertos[i].getNombre());
+					System.out.print("\nCiudad: " + aeropuertos[i].getCiudad());
+					System.out.print("\nPais: " + aeropuertos[i].getPais());
+					System.out.print("\n");
+				}else {
+					
+					System.out.print("\n || Aeropuerto Publico || ");
+					System.out.print("\nNombre: " + aeropuertos[i].getNombre());
+					System.out.print("\nCiudad: " + aeropuertos[i].getCiudad());
+					System.out.print("\nPais: " + aeropuertos[i].getPais());
+					System.out.print("\n");
+				}
+				System.out.print("");
+				System.out.print("\n");
+
+			}
+		
+		}
+		
+	
 	}
 
 	
-	
-	
-	
-	
-	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
