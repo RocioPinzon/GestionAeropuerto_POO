@@ -90,9 +90,10 @@ public class Principal {
 	
 	public static void menu() {
 		
-		String nombreAeropuerto;
+		String nombreAeropuerto, nombreCompania;
 		int opcion;
 		Aeropuerto aeropuerto;
+		Compania compania;
 		
 		do{
 			System.out.print("\t .: MENU :.");
@@ -134,11 +135,29 @@ public class Principal {
 				
 				break;
 			case 4: // 	Lista de vuelos por compañia
+				entrada.nextLine();
+				System.out.println("\nDigite el nombre del aeropuerto");
+
+				nombreAeropuerto = entrada.nextLine();
+				aeropuerto = buscadorAeropuerto(nombreAeropuerto, aeropuertos);
+
+				if(aeropuerto==null) {
+					System.out.println("El aeropuerto no existe.");
+
+				}else {
+					System.out.println("\nDigite el nombre de la compañia");
+					nombreCompania = entrada.nextLine();
+					
+					compania = aeropuerto.getCompania(nombreCompania);
+					mostrarVuelos(compania);
+
+				}
 				break;
+				
 			case 5: // 	Listar posibles vuelos de Origen y Destino
 				break;
 				
-			case 6: // 	Listar posibles vuelos de Origen y Destino
+			case 6: // 	Salir
 				break;
 				
 			default:
@@ -229,6 +248,25 @@ public class Principal {
 			}
 			
 		}
+		
+		public static void mostrarVuelos(Compania compania) {
+
+			Vuelo vuelo;
+			System.out.println("Las compañias del aeropuerto: " + compania.getNombre());
+
+			for (int i = 0; i < compania.getNumVuelo(); i++) {
+				vuelo = compania.getVuelo(i);
+				System.out.println("");
+				System.out.println("Identidicador: " + vuelo.getIdentificador());
+				System.out.println("Ciudad Origen: " + vuelo.getCiudadOrigen());
+				System.out.println("Ciudad Destino: " + vuelo.getCiudadDestino());
+				System.out.println("Precio: $ " + vuelo.getPrecio());
+
+			}
+			System.out.println("");
+
+		}
+		
 	}
 
 	
