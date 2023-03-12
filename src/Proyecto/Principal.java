@@ -111,6 +111,8 @@ public class Principal {
 				
 				break;
 			case 2: // 	Ver empresas(Privado) o subvencion(Publico)
+				System.out.print("");
+				mostrarPatrocinador(aeropuertos);
 				break;
 			case 3: // 	Lista compañias de un aeropuerto
 				break;
@@ -156,6 +158,33 @@ public class Principal {
 		
 		}
 		
+		public static void mostrarPatrocinador(Aeropuerto aeropuertos[]) {
+			
+			String empresas[];
+			
+			for (int i = 0; i < aeropuertos.length; i++) {
+
+				if(aeropuertos[i] instanceof AeropuertoPrivado) {
+					System.out.println("Aeropuerto Privado '" + aeropuertos[i].getNombre()+ "'");
+					empresas = ((AeropuertoPrivado)aeropuertos[i]).getListaEmpresas();
+					
+					System.out.println("Empresas");
+
+					for (int j = 0; j < empresas.length; j++) {
+						System.out.println(" - " + empresas[j]);
+
+					}
+				}else {
+					System.out.println("Aeropuerto Privado '" + aeropuertos[i].getNombre()+ "'");
+					System.out.println("Suvencion " + ((AeropuertoPublico)aeropuertos[i]).getSuvencion());
+
+					
+				}
+				System.out.println("");
+
+			}
+		
+		}
 	
 	}
 
