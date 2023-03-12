@@ -9,12 +9,13 @@ public class AeropuertoPublico extends Aeropuerto {
 		
 	}
 
-	public AeropuertoPublico(String nombre, String ciudad, String pais, Compania[] c) {
+	public AeropuertoPublico(double suvencion, String nombre, String ciudad, String pais, Compania[] c) {
 		super(nombre, ciudad, pais, c);
-		
+		this.suvencion = suvencion;
+
 	}
 
-	public AeropuertoPublico(String nombre, String ciudad, String pais, double suvencion) {
+	public AeropuertoPublico(double suvencion, String nombre, String ciudad, String pais) {
 		super(nombre, ciudad, pais);
 		this.suvencion = suvencion;
 	}

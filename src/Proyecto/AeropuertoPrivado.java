@@ -14,7 +14,7 @@ public class AeropuertoPrivado extends Aeropuerto{
 	public AeropuertoPrivado(String nombre, String ciudad, String pais, Compania[] c, String e[]) {
 		super(nombre, ciudad, pais, c);
 		this.listaEmpresas = e;
-		this.numEmpresas = e.length;
+		numEmpresas = e.length; 
 	}
 
 	public void insertarEmpresas(String e[]) {
@@ -25,6 +25,22 @@ public class AeropuertoPrivado extends Aeropuerto{
 	public void insertarEmpresa(String e) {
 		this.listaEmpresas[numEmpresas] = e;
 		numEmpresas++;
+	}
+
+	public String[] getListaEmpresas() {
+		return listaEmpresas;
+	}
+
+	public void setListaEmpresas(String[] listaEmpresas) {
+		this.listaEmpresas = listaEmpresas;
+	}
+
+	public int getNumEmpresas() {
+		return numEmpresas;
+	}
+
+	public void setNumEmpresas(int numEmpresas) {
+		this.numEmpresas = numEmpresas;
 	}
 	
 
