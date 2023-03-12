@@ -89,7 +89,10 @@ public class Principal {
 	}
 	
 	public static void menu() {
+		
+		String nombreAeropuerto;
 		int opcion;
+		Aeropuerto aeropuerto;
 		
 		do{
 			System.out.print("\t .: MENU :.");
@@ -115,6 +118,20 @@ public class Principal {
 				mostrarPatrocinador(aeropuertos);
 				break;
 			case 3: // 	Lista compañias de un aeropuerto
+				
+				entrada.nextLine();
+				System.out.println("\nDigite el nombre del aeropuerto: ");
+				nombreAeropuerto = entrada.nextLine();
+				
+				aeropuerto = buscadorAeropuerto(nombreAeropuerto, aeropuertos);
+				
+				if(aeropuerto==null) {
+					System.out.println("El aeropuerto no existe.");
+
+				}else {					
+					mostrarCompanias(aeropuerto);
+				}
+				
 				break;
 			case 4: // 	Lista de vuelos por compañia
 				break;
@@ -138,7 +155,7 @@ public class Principal {
 			for (int i = 0; i < aeropuertos.length; i++) {
 
 				if(aeropuertos[i] instanceof AeropuertoPrivado) {
-					System.out.print("ºn || Aeropuerto Privado ||");
+					System.out.print("\n || Aeropuerto Privado ||");
 					System.out.print("\nNombre: " + aeropuertos[i].getNombre());
 					System.out.print("\nCiudad: " + aeropuertos[i].getCiudad());
 					System.out.print("\nPais: " + aeropuertos[i].getPais());
@@ -185,7 +202,33 @@ public class Principal {
 			}
 		
 		}
+		
+		public static Aeropuerto buscadorAeropuerto(String nombre, Aeropuerto aeropuertos[]) {
+		
+			boolean encontrado = false;
+			int i = 0;
+			Aeropuerto aero = null;
+			
+			while ((!encontrado)&& (i<aeropuertos.length)) {
+				if(nombre.equals(aeropuertos[i].getNombre())) {
+					encontrado=true;
+					aero = aeropuertos[i];
+				}
+				i++;
+			}
+			
+			return aero;
+		}
 	
+		public static void mostrarCompanias(Aeropuerto aeropuerto) {
+			System.out.println("Las compañias del aeropuerto: " + aeropuerto.getNombre());
+
+			for (int i = 0; i < aeropuerto.getNumCompanias(); i++) {
+				System.out.println(aeropuerto.getCompania(i).getNombre());
+
+			}
+			
+		}
 	}
 
 	
