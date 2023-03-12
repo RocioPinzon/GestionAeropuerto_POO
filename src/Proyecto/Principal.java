@@ -12,6 +12,8 @@ public class Principal {
 
 		// Insertar datos de los aeropuertos
 
+		insertarDatosAeropuertos(aeropuertos);
+		menu();
 		
 	}
 	
@@ -73,6 +75,83 @@ public class Principal {
 		aero[2].getCompania("LATAM").getVuelo("FC12").insertarPasajero(new Pasajero("Raul", "8965456Y", "Peruano"));
 		aero[2].getCompania("LATAM").getVuelo("FC13").insertarPasajero(new Pasajero("Marina", "454564H", "Alemana"));
 		
+		
+		
+		//Aerpuerto PERU
+		
+		aero[3]  = new AeropuertoPrivado("Central Ciudad Real", "Ciudad Real", "España");
+
+		aero[3].insertarCompania(new Compania("AirEuropa"));
+		String empresas[] = {"CobreSol", "Airmar"};
+		((AeropuertoPrivado) aero[3]).insertarEmpresas(empresas);
+		aero[3].getCompania("AirEuropa").insertarVuelo(new Vuelo("AE40", "Ciudad Real", "Madrid", 45.5, 50));
+		aero[3].getCompania("AirEuropa").getVuelo("AE40").insertarPasajero(new Pasajero("Marta", "4684563I", "Española"));
+	}
+	
+	public static void menu() {
+		int opcion;
+		
+		do{
+			System.out.print("\t .: MENU :.");
+			System.out.print("1. Ver aeropuertos (Publicos o Privados)");
+			System.out.print("2. Ver empresas(Privado) o subvencion(Publico)");
+			System.out.print("3. Lista compañias de un aeropuerto");
+			System.out.print("4. Lista de vuelos por compañia");
+			System.out.print("5. Listar posibles vuelos de Origen y Destino");
+			System.out.print("6. Salir");
+			
+			System.out.print("Opcion");
+
+			opcion = entrada.nextInt();
+			
+			switch (opcion) {
+			case 1: // Ver aeropuertos (Publicos o Privados)
+				
+				break;
+			case 2: // 	Ver empresas(Privado) o subvencion(Publico)
+				break;
+			case 3: // 	Lista compañias de un aeropuerto
+				break;
+			case 4: // 	Lista de vuelos por compañia
+				break;
+			case 5: // 	Listar posibles vuelos de Origen y Destino
+				break;
+				
+			case 6: // 	Listar posibles vuelos de Origen y Destino
+				break;
+				
+			default:
+				System.out.print("Opcion de menú no válida. Pruebe con las opciones del 1 al 6.");
+				break;
+			}
+		}while(opcion!=6);
 	}
 
+	
+	
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
